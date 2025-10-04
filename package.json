@@ -1,0 +1,18 @@
+{
+  "name": "streambin",
+  "version": "1.0.0",
+  "description": "file sharing platform",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
