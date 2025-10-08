@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { ConnectDB } from './db/connectDB.js';
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
+import filesRouter from './routes/files.route.js';
 import cors from 'cors'
 dotenv.config();
 
@@ -17,8 +18,10 @@ app.use(cors(
     }
 ))
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use('/auth', authRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/files', filesRouter);
 
 
 
