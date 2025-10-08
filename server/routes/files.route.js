@@ -9,29 +9,19 @@ const router = express.Router();
 
 
 // router.post('/upload', upload.single('file'), uploadFile);
-// router.post('/upload', (req, res, next) => {
-//     upload.single('file')(req, res, function (err) {
-//         if (err) {
-//             console.error("❌ Multer error:", err);
-//             return res.status(400).json({ success: false, message: err.message });
-//         }
+router.post('/upload', (req, res, next) => {
+    upload.single('file')(req, res, function (err) {
+        if (err) {
+            console.error("❌ Multer error:", err);
+            return res.status(400).json({ success: false, message: err.message });
+        }
 
-//         console.log("✅ Multer middleware executed");
-//         console.log("👉 req.file:", req.file);
-//         console.log("👉 req.body:", req.body);
+        console.log("✅ Multer middleware executed");
+        console.log("👉 req.file:", req.file);
+        console.log("👉 req.body:", req.body);
 
-//         next();
-//     });
-// }, uploadFile);
-
-
-
-import multer from "multer";
-const uploadLocal = multer({ dest: "uploads/" });
-
-router.post("/test-upload", uploadLocal.single("file"), (req, res) => {
-    console.log("req.file:", req.file);
-    res.json({ file: req.file });
-});
+        next();
+    });
+}, uploadFile);
 
 export default router;
